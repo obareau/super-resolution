@@ -156,11 +156,7 @@ class SrganTrainer:
     def train(self, train_dataset, steps=200000):
         pls_metric = Mean()
         dls_metric = Mean()
-        step = 0
-
-        for lr, hr in train_dataset.take(steps):
-            step += 1
-
+        for step, (lr, hr) in enumerate(train_dataset.take(steps), start=1):
             pl, dl = self.train_step(lr, hr)
             pls_metric(pl)
             dls_metric(dl)

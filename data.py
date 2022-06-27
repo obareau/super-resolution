@@ -32,7 +32,7 @@ class DIV2K:
         _downgrades_b = ['mild', 'difficult']
 
         if scale == 8 and downgrade != 'bicubic':
-            raise ValueError(f'scale 8 only allowed for bicubic downgrade')
+            raise ValueError('scale 8 only allowed for bicubic downgrade')
 
         if downgrade in _downgrades_b and scale != 4:
             raise ValueError(f'{downgrade} downgrade requires scale 4')
@@ -142,7 +142,6 @@ class DIV2K:
     @staticmethod
     def _populate_cache(ds, cache_file):
         print(f'Caching decoded images in {cache_file} ...')
-        for _ in ds: pass
         print(f'Cached decoded images in {cache_file}.')
 
 
